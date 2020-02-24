@@ -1,0 +1,2 @@
+import './services/person.spec';
+
