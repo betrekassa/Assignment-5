@@ -1,9 +1,6 @@
 exports.seed = async knex => {
 
   
-  await knex('tbl_person')
-    .where(1, '=', 1);
-
 /*   knex.raw('truncate table tbl_cition');
   knex.raw('truncate table tbl_officer');
   knex.raw('truncate table tbl_driver');
@@ -16,7 +13,8 @@ exports.seed = async knex => {
   await knex.raw('TRUNCATE TABLE tbl_person RESTART IDENTITY CASCADE');
 
 
-/*   knex.raw('ALTER TABLE tbl_person AUTO_INCREMENT = 1');
+/*
+  knex.raw('ALTER TABLE tbl_person AUTO_INCREMENT = 1');
   knex.raw('ALTER TABLE tbl_officer AUTO_INCREMENT = 1');
   knex.raw('ALTER TABLE tbl_driver AUTO_INCREMENT = 1');
   
