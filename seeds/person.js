@@ -1,19 +1,26 @@
 exports.seed = async knex => {
-  
 
   
-  knex.raw('TRUNCATE TABLE tbl_cition');
-  knex.raw('TRUNCATE TABLE tbl_officer');
-  knex.raw('TRUNCATE TABLE tbl_driver');
-  knex.raw('TRUNCATE TABLE tbl_person');
-  knex.raw('TRUNCATE TABLE tbl_lov_violation');
-  
+  await knex('tbl_person')
+    .where(1, '=', 1);
 
-  knex.raw('ALTER TABLE tbl_person AUTO_INCREMENT = 1');
+/*   knex.raw('truncate table tbl_cition');
+  knex.raw('truncate table tbl_officer');
+  knex.raw('truncate table tbl_driver');
+  knex.raw('truncate table tbl_person');
+  knex.raw('truncate table tbl_lov_violation'); */
+  await knex.raw('TRUNCATE TABLE tbl_cition RESTART IDENTITY CASCADE');
+  await knex.raw('TRUNCATE TABLE tbl_officer RESTART IDENTITY CASCADE');
+  await knex.raw('TRUNCATE TABLE tbl_driver RESTART IDENTITY CASCADE');
+  await knex.raw('TRUNCATE TABLE tbl_lov_violation RESTART IDENTITY CASCADE');
+  await knex.raw('TRUNCATE TABLE tbl_person RESTART IDENTITY CASCADE');
+
+
+/*   knex.raw('ALTER TABLE tbl_person AUTO_INCREMENT = 1');
   knex.raw('ALTER TABLE tbl_officer AUTO_INCREMENT = 1');
   knex.raw('ALTER TABLE tbl_driver AUTO_INCREMENT = 1');
   
-  await knex('tbl_person').insert([
+ */  await knex('tbl_person').insert([
     {
       first_name: 'Abera',
       last_name: 'Shena',
@@ -120,12 +127,12 @@ exports.seed = async knex => {
   ]);
   
   await knex('tbl_officer').insert([
-    { licence_number: 'First Class', phone_number: '8980135467' ,date_issued:'2008-01-01',person_id:2},
-    { licence_number: 'Lutenate', phone_number: '5980135467' ,date_issued:'2008-02-01',person_id:4},
-    { licence_number: 'Sharife', phone_number: '6980135467' ,date_issued:'2008-03-01',person_id:6},
-    { licence_number: 'First Class', phone_number: '9980135467' ,date_issued:'2008-04-01',person_id:8},
-    { licence_number: 'Lutenate', phone_number: '3980135467' ,date_issued:'2008-07-01',person_id:10},
-    { licence_number: 'First Class', phone_number: '5880135467' ,date_issued:'2009-01-01',person_id:12},
+    { title: 'First Class', phone_number: '8980135467' ,date_hired:'2008-01-01',person_id:2},
+    { title: 'Lutenate', phone_number: '5980135467' ,date_hired:'2008-02-01',person_id:4},
+    { title: 'Sharife', phone_number: '6980135467' ,date_hired:'2008-03-01',person_id:6},
+    { title: 'First Class', phone_number: '9980135467' ,date_hired:'2008-04-01',person_id:8},
+    { title: 'Lutenate', phone_number: '3980135467' ,date_hired:'2008-07-01',person_id:10},
+    { title: 'First Class', phone_number: '5880135467' ,date_hired:'2009-01-01',person_id:12},
   ]); 
 
 
